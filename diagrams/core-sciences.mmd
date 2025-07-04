@@ -1,0 +1,20 @@
+flowchart TD
+  %% Core disciplines
+  MATH[Mathematics]
+  PHYS[Physics]
+  CHEM[Chemistry]
+  BIO[Biology]
+
+  MATH --> PHYS
+  PHYS --> CHEM
+  CHEM --> BIO
+
+  %% First branches
+  BIO --> ECO[Ecology]
+  BIO --> EARTH[Earth Science]
+
+  %% Sub-branches
+  EARTH --> GEO[Geology]
+  EARTH --> ASTR[Astronomy]
+
+  %% (Add “Astrophysics,” “Materials Science,” “Genetics,” etc. below as you go.)
