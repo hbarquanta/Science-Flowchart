@@ -1,1 +1,114 @@
-
+{
+  "Formal Sciences": {
+    "Mathematics": {
+      "Pure Mathematics": {},
+      "Applied Mathematics": {},
+      "Statistics": {}
+    },
+    "Logic": {},
+    "Systems Theory": {},
+    "Decision Theory": {},
+    "Information Science": {},
+    "Data Science": {},
+    "Theoretical Computer Science": {
+      "Algorithms": {},
+      "Computational Complexity": {}
+    },
+    "Machine Learning": {},
+    "Cryptography": {}
+  },
+  "Natural Sciences": {
+    "Physics": {
+      "Theoretical Physics": {},
+      "Experimental Physics": {},
+      "Astrophysics": {},
+      "Particle Physics": {},
+      "Condensed Matter Physics": {}
+    },
+    "Chemistry": {
+      "Organic Chemistry": {},
+      "Inorganic Chemistry": {},
+      "Physical Chemistry": {},
+      "Analytical Chemistry": {},
+      "Biochemistry": {}
+    },
+    "Biology": {
+      "Molecular Biology": {},
+      "Cell Biology": {},
+      "Genetics": {},
+      "Microbiology": {},
+      "Botany": {},
+      "Zoology": {},
+      "Ecology": {}
+    },
+    "Earth Science": {
+      "Geology": {},
+      "Meteorology": {},
+      "Oceanography": {},
+      "Climatology": {},
+      "Environmental Science": {}
+    }
+  },
+  "Social Sciences": {
+    "Psychology": {
+      "Cognitive Psychology": {},
+      "Social Psychology": {}
+    },
+    "Sociology": {},
+    "Anthropology": {
+      "Cultural Anthropology": {},
+      "Archaeology": {}
+    },
+    "Economics": {
+      "Behavioral Economics": {}
+    },
+    "Political Science": {
+      "International Relations": {}
+    },
+    "Human Geography": {},
+    "Linguistics": {
+      "Sociolinguistics": {},
+      "Psycholinguistics": {}
+    },
+    "Education": {}
+  },
+  "Applied Sciences": {
+    "Engineering": {
+      "Mechanical Engineering": {},
+      "Electrical Engineering": {},
+      "Civil Engineering": {},
+      "Chemical Engineering": {},
+      "Computer Engineering": {}
+    },
+    "Materials Science": {},
+    "Computer Science": {
+      "Software Engineering": {},
+      "Data Engineering": {}
+    },
+    "Medicine": {
+      "Pharmacology": {},
+      "Nursing": {},
+      "Epidemiology": {}
+    },
+    "Architecture": {},
+    "Agriculture": {
+      "Forestry": {},
+      "Horticulture": {}
+    }
+  },
+  "Interdisciplinary": {
+    "Bioinformatics": {},
+    "Biophysics": {},
+    "Neuroscience": {},
+    "Cognitive Science": {},
+    "Systems Biology": {},
+    "Environmental Engineering": {},
+    "Econophysics": {},
+    "Geophysics": {},
+    "Astrobiology": {},
+    "Computational Biology": {},
+    "Quantum Computing": {},
+    "Robotics": {},
+    "Artificial Intelligence": {}
+  }
+}
