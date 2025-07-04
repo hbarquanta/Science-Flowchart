@@ -6,7 +6,7 @@ def load_tree(path):
         return json.load(f)
 
 def mermaid_from_tree(tree, root_label="Science"):
-    lines = ["flowchart LR", f'ROOT["{root_label}"]']
+    lines = ["flowchart TD", f'ROOT["{root_label}"]']
     
     def recurse(subtree, parent_id):
         for name, children in subtree.items():
