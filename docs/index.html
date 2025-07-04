@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Map of Science</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- your custom styles -->
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <!-- Mermaid core -->
+  <script src="https://unpkg.com/mermaid@10/dist/mermaid.min.js"></script>
+  <script src="assets/js/mermaid-init.js"></script>
+</head>
+<body>
+  <main class="diagram-page">
+    <!-- this div will auto-render your flowchart -->
+    <div class="mermaid">
+      %% include the file contents here, or copy/paste from diagrams/core-sciences.mmd
+      %% for now, we’ll stub in the skeleton:
+      flowchart TD
+        MATH[Mathematics]
+        PHYS[Physics]
+        CHEM[Chemistry]
+        BIO[Biology]
+        MATH --> PHYS
+        PHYS --> CHEM
+        CHEM --> BIO
+        %% more branches to come…
+    </div>
+  </main>
+</body>
+</html>
