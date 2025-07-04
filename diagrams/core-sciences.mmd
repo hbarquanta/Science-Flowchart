@@ -1,20 +1,165 @@
-flowchart TD
-  %% Core disciplines
-  MATH[Mathematics]
-  PHYS[Physics]
-  CHEM[Chemistry]
-  BIO[Biology]
+flowchart LR
+  %%—————— Formal Sciences ——————%%
+  subgraph FS["Formal Sciences"]
+    direction TB
+    FS_ROOT[Formal Sciences]
 
-  MATH --> PHYS
-  PHYS --> CHEM
-  CHEM --> BIO
+    MATH[Mathematics]
+    PURE_MATH[Pure Mathematics]
+    APPL_MATH[Applied Mathematics]
+    STAT[Statistics]
+    LOGIC[Logic]
+    TCS[Theoretical CS]
 
-  %% First branches
-  BIO --> ECO[Ecology]
-  BIO --> EARTH[Earth Science]
+    FS_ROOT --> MATH
+    MATH --> PURE_MATH
+    MATH --> APPL_MATH
+    MATH --> STAT
+    MATH --> LOGIC
+    LOGIC --> TCS
+  end
 
-  %% Sub-branches
-  EARTH --> GEO[Geology]
-  EARTH --> ASTR[Astronomy]
+  %%—————— Natural Sciences ——————%%
+  subgraph NS["Natural Sciences"]
+    direction TB
+    NS_ROOT[Natural Sciences]
 
-  %% (Add “Astrophysics,” “Materials Science,” “Genetics,” etc. below as you go.)
+    PHYS[Physics]
+    ASTRO[Astrophysics]
+    CHEM[Chemistry]
+    ORG_CHEM[Organic Chem]
+    INORG_CHEM[Inorganic Chem]
+    PHYSCHEM[Physical Chem]
+    ANALYTIC[Analytical Chem]
+    BIO[Biology]
+    MOL_BIO[Molecular Biology]
+    GEN[Genetics]
+    MICRO[Microbiology]
+    ECO[Ecology]
+    EARTH[Earth Science]
+    GEO[Geology]
+    MET[Meteorology]
+    OCEANO[Oceanography]
+    CLIMO[Climatology]
+
+    NS_ROOT --> PHYS
+    PHYS --> ASTRO
+    NS_ROOT --> CHEM
+    CHEM --> ORG_CHEM
+    CHEM --> INORG_CHEM
+    CHEM --> PHYSCHEM
+    CHEM --> ANALYTIC
+    NS_ROOT --> BIO
+    BIO --> MOL_BIO
+    BIO --> GEN
+    BIO --> MICRO
+    BIO --> ECO
+    NS_ROOT --> EARTH
+    EARTH --> GEO
+    EARTH --> MET
+    EARTH --> OCEANO
+    EARTH --> CLIMO
+  end
+
+  %%—————— Social Sciences ——————%%
+  subgraph SS["Social Sciences"]
+    direction TB
+    SS_ROOT[Social Sciences]
+
+    SOC[Sociology]
+    PSY[Psychology]
+    ANTH[Anthropology]
+    ECON[Economics]
+    POLSCI[Political Science]
+    LING[Linguistics]
+    HUM_GEO[Human Geography]
+
+    SS_ROOT --> SOC
+    SS_ROOT --> PSY
+    SS_ROOT --> ANTH
+    SS_ROOT --> ECON
+    SS_ROOT --> POLSCI
+    SS_ROOT --> LING
+    SS_ROOT --> HUM_GEO
+  end
+
+  %%—————— Applied Sciences ——————%%
+  subgraph AS["Applied Sciences"]
+    direction TB
+    AS_ROOT[Applied Sciences]
+
+    ENG[Engineering]
+    MECH_ENG[Mechanical Eng.]
+    ELEC_ENG[Electrical Eng.]
+    CIV_ENG[Civil Eng.]
+    CHEM_ENG[Chemical Eng.]
+    COMP_ENG[Computer Eng.]
+    MATS[Mats. Science]
+    MED[Medicine]
+    ARCH[Architecture]
+    COMP_SCI[Computer Science]
+
+    AS_ROOT --> ENG
+    ENG --> MECH_ENG
+    ENG --> ELEC_ENG
+    ENG --> CIV_ENG
+    ENG --> CHEM_ENG
+    ENG --> COMP_ENG
+
+    AS_ROOT --> MATS
+    AS_ROOT --> MED
+    AS_ROOT --> ARCH
+    AS_ROOT --> COMP_SCI
+  end
+
+  %%—————— Interdisciplinary ——————%%
+  subgraph ID["Interdisciplinary"]
+    direction TB
+    ID_ROOT[Interdisciplinary]
+
+    DATA_SCI[Data Science]
+    ENV_SCI[Environmental Science]
+    BIOPHYS[Biophysics]
+    BIOINFO[Bioinformatics]
+    NEURO[Neuroscience]
+    COGSCI[Cognitive Science]
+    SYSBIO[Systems Biology]
+    ECONOPHYS[Econophysics]
+    GEOPHYS[Geophysics]
+    ASTROBIO[Astrobiology]
+
+    %% core → interdisciplinary links
+    STAT --> DATA_SCI
+    MATH --> DATA_SCI
+    ECON --> ECONOPHYS
+    PHYS --> BIOPHYS
+    CHEM --> BIOPHYS
+    BIO  --> BIOINFO
+    BIO  --> SYSBIO
+    BIO  --> NEURO
+    NEURO --> COGSCI
+    PHYS --> GEOPHYS
+    EARTH --> GEOPHYS
+    EARTH --> ENV_SCI
+    CHEM_ENG --> ENV_SCI
+    ASTRO --> ASTROBIO
+
+    ID_ROOT --> DATA_SCI
+    ID_ROOT --> ENV_SCI
+    ID_ROOT --> BIOPHYS
+    ID_ROOT --> BIOINFO
+    ID_ROOT --> NEURO
+    ID_ROOT --> COGSCI
+    ID_ROOT --> SYSBIO
+    ID_ROOT --> ECONOPHYS
+    ID_ROOT --> GEOPHYS
+    ID_ROOT --> ASTROBIO
+  end
+
+  %%—————— Cross‐links between major buckets ——————%%
+  FS_ROOT --> NS_ROOT
+  FS_ROOT --> SS_ROOT
+  FS_ROOT --> AS_ROOT
+  NS_ROOT --> ID_ROOT
+  SS_ROOT --> ID_ROOT
+  AS_ROOT --> ID_ROOT
