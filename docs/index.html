@@ -2,32 +2,55 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Map of Science</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- your custom styles -->
+  <!-- your custom CSS (can be empty or contain your overrides) -->
   <link rel="stylesheet" href="assets/css/style.css">
 
-  <!-- Mermaid core -->
+  <!-- Mermaid core library -->
   <script src="https://unpkg.com/mermaid@10/dist/mermaid.min.js"></script>
-  <script src="assets/js/mermaid-init.js"></script>
+  <script>
+    // Configure Mermaid but do NOT auto-render on load
+    mermaid.initialize({
+      startOnLoad: false,
+      theme: 'neutral',
+      flowchart: { curve: 'linear' },
+      fontFamily: 'Inter, sans-serif'
+    });
+  </script>
 </head>
 <body>
   <main class="diagram-page">
-    <!-- this div will auto-render your flowchart -->
-    <div class="mermaid">
-      %% include the file contents here, or copy/paste from diagrams/core-sciences.mmd
-      %% for now, we’ll stub in the skeleton:
-      flowchart TD
-        MATH[Mathematics]
-        PHYS[Physics]
-        CHEM[Chemistry]
-        BIO[Biology]
-        MATH --> PHYS
-        PHYS --> CHEM
-        CHEM --> BIO
-        %% more branches to come…
-    </div>
+    <!-- This empty container will receive the fetched .mmd -->
+    <div id="flowchart"></div>
   </main>
+
+  <script>
+    (function() {
+      // Absolute path from the project root
+      const mmdPath = '/diagrams/core-sciences.mmd';
+
+      fetch(mmdPath)
+        .then(response => {
+          if (!response.ok) {
+            throw new Error(`HTTP ${response.status} fetching ${mmdPath}`);
+          }
+          return response.text();
+        })
+        .then(source => {
+          const container = document.getElementById('flowchart');
+          // Inject the raw Mermaid definition
+          container.textContent = source;
+          // Manually render only this container
+          mermaid.init(undefined, container);
+        })
+        .catch(err => {
+          console.error(err);
+          document.getElementById('flowchart').textContent =
+            'Failed to load diagram: ' + err.message;
+        });
+    })();
+  </script>
 </body>
 </html>
