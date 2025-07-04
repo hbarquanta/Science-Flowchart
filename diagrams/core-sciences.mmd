@@ -1,165 +1,94 @@
 flowchart LR
-  %%—————— Formal Sciences ——————%%
-  subgraph FS["Formal Sciences"]
-    direction TB
-    FS_ROOT[Formal Sciences]
-
-    MATH[Mathematics]
-    PURE_MATH[Pure Mathematics]
-    APPL_MATH[Applied Mathematics]
-    STAT[Statistics]
-    LOGIC[Logic]
-    TCS[Theoretical CS]
-
-    FS_ROOT --> MATH
-    MATH --> PURE_MATH
-    MATH --> APPL_MATH
-    MATH --> STAT
-    MATH --> LOGIC
-    LOGIC --> TCS
-  end
-
-  %%—————— Natural Sciences ——————%%
-  subgraph NS["Natural Sciences"]
-    direction TB
-    NS_ROOT[Natural Sciences]
-
-    PHYS[Physics]
-    ASTRO[Astrophysics]
-    CHEM[Chemistry]
-    ORG_CHEM[Organic Chem]
-    INORG_CHEM[Inorganic Chem]
-    PHYSCHEM[Physical Chem]
-    ANALYTIC[Analytical Chem]
-    BIO[Biology]
-    MOL_BIO[Molecular Biology]
-    GEN[Genetics]
-    MICRO[Microbiology]
-    ECO[Ecology]
-    EARTH[Earth Science]
-    GEO[Geology]
-    MET[Meteorology]
-    OCEANO[Oceanography]
-    CLIMO[Climatology]
-
-    NS_ROOT --> PHYS
-    PHYS --> ASTRO
-    NS_ROOT --> CHEM
-    CHEM --> ORG_CHEM
-    CHEM --> INORG_CHEM
-    CHEM --> PHYSCHEM
-    CHEM --> ANALYTIC
-    NS_ROOT --> BIO
-    BIO --> MOL_BIO
-    BIO --> GEN
-    BIO --> MICRO
-    BIO --> ECO
-    NS_ROOT --> EARTH
-    EARTH --> GEO
-    EARTH --> MET
-    EARTH --> OCEANO
-    EARTH --> CLIMO
-  end
-
-  %%—————— Social Sciences ——————%%
-  subgraph SS["Social Sciences"]
-    direction TB
-    SS_ROOT[Social Sciences]
-
-    SOC[Sociology]
-    PSY[Psychology]
-    ANTH[Anthropology]
-    ECON[Economics]
-    POLSCI[Political Science]
-    LING[Linguistics]
-    HUM_GEO[Human Geography]
-
-    SS_ROOT --> SOC
-    SS_ROOT --> PSY
-    SS_ROOT --> ANTH
-    SS_ROOT --> ECON
-    SS_ROOT --> POLSCI
-    SS_ROOT --> LING
-    SS_ROOT --> HUM_GEO
-  end
-
-  %%—————— Applied Sciences ——————%%
-  subgraph AS["Applied Sciences"]
-    direction TB
-    AS_ROOT[Applied Sciences]
-
-    ENG[Engineering]
-    MECH_ENG[Mechanical Eng.]
-    ELEC_ENG[Electrical Eng.]
-    CIV_ENG[Civil Eng.]
-    CHEM_ENG[Chemical Eng.]
-    COMP_ENG[Computer Eng.]
-    MATS[Mats. Science]
-    MED[Medicine]
-    ARCH[Architecture]
-    COMP_SCI[Computer Science]
-
-    AS_ROOT --> ENG
-    ENG --> MECH_ENG
-    ENG --> ELEC_ENG
-    ENG --> CIV_ENG
-    ENG --> CHEM_ENG
-    ENG --> COMP_ENG
-
-    AS_ROOT --> MATS
-    AS_ROOT --> MED
-    AS_ROOT --> ARCH
-    AS_ROOT --> COMP_SCI
-  end
-
-  %%—————— Interdisciplinary ——————%%
-  subgraph ID["Interdisciplinary"]
-    direction TB
-    ID_ROOT[Interdisciplinary]
-
-    DATA_SCI[Data Science]
-    ENV_SCI[Environmental Science]
-    BIOPHYS[Biophysics]
-    BIOINFO[Bioinformatics]
-    NEURO[Neuroscience]
-    COGSCI[Cognitive Science]
-    SYSBIO[Systems Biology]
-    ECONOPHYS[Econophysics]
-    GEOPHYS[Geophysics]
-    ASTROBIO[Astrobiology]
-
-    %% core → interdisciplinary links
-    STAT --> DATA_SCI
-    MATH --> DATA_SCI
-    ECON --> ECONOPHYS
-    PHYS --> BIOPHYS
-    CHEM --> BIOPHYS
-    BIO  --> BIOINFO
-    BIO  --> SYSBIO
-    BIO  --> NEURO
-    NEURO --> COGSCI
-    PHYS --> GEOPHYS
-    EARTH --> GEOPHYS
-    EARTH --> ENV_SCI
-    CHEM_ENG --> ENV_SCI
-    ASTRO --> ASTROBIO
-
-    ID_ROOT --> DATA_SCI
-    ID_ROOT --> ENV_SCI
-    ID_ROOT --> BIOPHYS
-    ID_ROOT --> BIOINFO
-    ID_ROOT --> NEURO
-    ID_ROOT --> COGSCI
-    ID_ROOT --> SYSBIO
-    ID_ROOT --> ECONOPHYS
-    ID_ROOT --> GEOPHYS
-    ID_ROOT --> ASTROBIO
-  end
-
-  %%—————— Cross‐links between major buckets ——————%%
-  FS_ROOT --> NS_ROOT
-  FS_ROOT --> SS_ROOT
-  FS_ROOT --> AS_ROOT
-  NS_ROOT --> ID_ROOT
-  SS_ROOT --> ID_ROOT
-  AS_ROOT --> ID_ROOT
+ROOT["Science"]
+ROOT --> FORMAL_SCIENCES["Formal Sciences"]
+FORMAL_SCIENCES --> MATHEMATICS["Mathematics"]
+MATHEMATICS --> PURE_MATHEMATICS["Pure Mathematics"]
+MATHEMATICS --> APPLIED_MATHEMATICS["Applied Mathematics"]
+MATHEMATICS --> STATISTICS["Statistics"]
+FORMAL_SCIENCES --> LOGIC["Logic"]
+FORMAL_SCIENCES --> SYSTEMS_THEORY["Systems Theory"]
+FORMAL_SCIENCES --> DECISION_THEORY["Decision Theory"]
+FORMAL_SCIENCES --> INFORMATION_SCIENCE["Information Science"]
+FORMAL_SCIENCES --> DATA_SCIENCE["Data Science"]
+FORMAL_SCIENCES --> THEORETICAL_COMPUTER_SCIENCE["Theoretical Computer Science"]
+THEORETICAL_COMPUTER_SCIENCE --> ALGORITHMS["Algorithms"]
+THEORETICAL_COMPUTER_SCIENCE --> COMPUTATIONAL_COMPLEXITY["Computational Complexity"]
+FORMAL_SCIENCES --> MACHINE_LEARNING["Machine Learning"]
+FORMAL_SCIENCES --> CRYPTOGRAPHY["Cryptography"]
+ROOT --> NATURAL_SCIENCES["Natural Sciences"]
+NATURAL_SCIENCES --> PHYSICS["Physics"]
+PHYSICS --> THEORETICAL_PHYSICS["Theoretical Physics"]
+PHYSICS --> EXPERIMENTAL_PHYSICS["Experimental Physics"]
+PHYSICS --> ASTROPHYSICS["Astrophysics"]
+PHYSICS --> PARTICLE_PHYSICS["Particle Physics"]
+PHYSICS --> CONDENSED_MATTER_PHYSICS["Condensed Matter Physics"]
+NATURAL_SCIENCES --> CHEMISTRY["Chemistry"]
+CHEMISTRY --> ORGANIC_CHEMISTRY["Organic Chemistry"]
+CHEMISTRY --> INORGANIC_CHEMISTRY["Inorganic Chemistry"]
+CHEMISTRY --> PHYSICAL_CHEMISTRY["Physical Chemistry"]
+CHEMISTRY --> ANALYTICAL_CHEMISTRY["Analytical Chemistry"]
+CHEMISTRY --> BIOCHEMISTRY["Biochemistry"]
+NATURAL_SCIENCES --> BIOLOGY["Biology"]
+BIOLOGY --> MOLECULAR_BIOLOGY["Molecular Biology"]
+BIOLOGY --> CELL_BIOLOGY["Cell Biology"]
+BIOLOGY --> GENETICS["Genetics"]
+BIOLOGY --> MICROBIOLOGY["Microbiology"]
+BIOLOGY --> BOTANY["Botany"]
+BIOLOGY --> ZOOLOGY["Zoology"]
+BIOLOGY --> ECOLOGY["Ecology"]
+NATURAL_SCIENCES --> EARTH_SCIENCE["Earth Science"]
+EARTH_SCIENCE --> GEOLOGY["Geology"]
+EARTH_SCIENCE --> METEOROLOGY["Meteorology"]
+EARTH_SCIENCE --> OCEANOGRAPHY["Oceanography"]
+EARTH_SCIENCE --> CLIMATOLOGY["Climatology"]
+EARTH_SCIENCE --> ENVIRONMENTAL_SCIENCE["Environmental Science"]
+ROOT --> SOCIAL_SCIENCES["Social Sciences"]
+SOCIAL_SCIENCES --> PSYCHOLOGY["Psychology"]
+PSYCHOLOGY --> COGNITIVE_PSYCHOLOGY["Cognitive Psychology"]
+PSYCHOLOGY --> SOCIAL_PSYCHOLOGY["Social Psychology"]
+SOCIAL_SCIENCES --> SOCIOLOGY["Sociology"]
+SOCIAL_SCIENCES --> ANTHROPOLOGY["Anthropology"]
+ANTHROPOLOGY --> CULTURAL_ANTHROPOLOGY["Cultural Anthropology"]
+ANTHROPOLOGY --> ARCHAEOLOGY["Archaeology"]
+SOCIAL_SCIENCES --> ECONOMICS["Economics"]
+ECONOMICS --> BEHAVIORAL_ECONOMICS["Behavioral Economics"]
+SOCIAL_SCIENCES --> POLITICAL_SCIENCE["Political Science"]
+POLITICAL_SCIENCE --> INTERNATIONAL_RELATIONS["International Relations"]
+SOCIAL_SCIENCES --> HUMAN_GEOGRAPHY["Human Geography"]
+SOCIAL_SCIENCES --> LINGUISTICS["Linguistics"]
+LINGUISTICS --> SOCIOLINGUISTICS["Sociolinguistics"]
+LINGUISTICS --> PSYCHOLINGUISTICS["Psycholinguistics"]
+SOCIAL_SCIENCES --> EDUCATION["Education"]
+ROOT --> APPLIED_SCIENCES["Applied Sciences"]
+APPLIED_SCIENCES --> ENGINEERING["Engineering"]
+ENGINEERING --> MECHANICAL_ENGINEERING["Mechanical Engineering"]
+ENGINEERING --> ELECTRICAL_ENGINEERING["Electrical Engineering"]
+ENGINEERING --> CIVIL_ENGINEERING["Civil Engineering"]
+ENGINEERING --> CHEMICAL_ENGINEERING["Chemical Engineering"]
+ENGINEERING --> COMPUTER_ENGINEERING["Computer Engineering"]
+APPLIED_SCIENCES --> MATERIALS_SCIENCE["Materials Science"]
+APPLIED_SCIENCES --> COMPUTER_SCIENCE["Computer Science"]
+COMPUTER_SCIENCE --> SOFTWARE_ENGINEERING["Software Engineering"]
+COMPUTER_SCIENCE --> DATA_ENGINEERING["Data Engineering"]
+APPLIED_SCIENCES --> MEDICINE["Medicine"]
+MEDICINE --> PHARMACOLOGY["Pharmacology"]
+MEDICINE --> NURSING["Nursing"]
+MEDICINE --> EPIDEMIOLOGY["Epidemiology"]
+APPLIED_SCIENCES --> ARCHITECTURE["Architecture"]
+APPLIED_SCIENCES --> AGRICULTURE["Agriculture"]
+AGRICULTURE --> FORESTRY["Forestry"]
+AGRICULTURE --> HORTICULTURE["Horticulture"]
+ROOT --> INTERDISCIPLINARY["Interdisciplinary"]
+INTERDISCIPLINARY --> BIOINFORMATICS["Bioinformatics"]
+INTERDISCIPLINARY --> BIOPHYSICS["Biophysics"]
+INTERDISCIPLINARY --> NEUROSCIENCE["Neuroscience"]
+INTERDISCIPLINARY --> COGNITIVE_SCIENCE["Cognitive Science"]
+INTERDISCIPLINARY --> SYSTEMS_BIOLOGY["Systems Biology"]
+INTERDISCIPLINARY --> ENVIRONMENTAL_ENGINEERING["Environmental Engineering"]
+INTERDISCIPLINARY --> ECONOPHYSICS["Econophysics"]
+INTERDISCIPLINARY --> GEOPHYSICS["Geophysics"]
+INTERDISCIPLINARY --> ASTROBIOLOGY["Astrobiology"]
+INTERDISCIPLINARY --> COMPUTATIONAL_BIOLOGY["Computational Biology"]
+INTERDISCIPLINARY --> QUANTUM_COMPUTING["Quantum Computing"]
+INTERDISCIPLINARY --> ROBOTICS["Robotics"]
+INTERDISCIPLINARY --> ARTIFICIAL_INTELLIGENCE["Artificial Intelligence"]
